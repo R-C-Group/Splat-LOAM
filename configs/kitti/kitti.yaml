@@ -9,10 +9,10 @@ output:
   folder: null
   writer: kitti
 logging:
-  enable: true
+  enable: true # Enable data logging
   logger_type: rerun
-  rerun_spawn: true
-  rerun_serve_grpc: null
+  rerun_spawn: true #如果有显示设备，就开
+  rerun_serve_grpc: null #远程则用这个
   rerun_connect_grpc_url: null
 mapping:
   num_iterations: 300

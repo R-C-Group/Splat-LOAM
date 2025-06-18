@@ -39,7 +39,6 @@ python3 run.py slam configs/kitti/kitti-00-odom.yaml
 
 * 注意，上述需要在`sequences/00`内还要有times.txt文件，故此需要下载图像帧看看
 * 若`output.folder`没有设置，实验结果会保存在 `results/<date_of_the_experiment>/`文件中
-* 运行后提醒打开浏览器`http://127.0.0.1:9876/`,但是加载好久都加载不出来（可能是远程服务器网络不行吧）
 
 <div align="center">
   <img src="./Fig/微信截图_20250618211049.png" width="80%" />
@@ -50,6 +49,13 @@ python3 run.py slam configs/kitti/kitti-00-odom.yaml
 >[!TIP]
 >If you want to solve `Mapping-only`, provide a trajectory in `data.trajectory_reader.filename`, set tracking to use it with `tracking.method=gt` and enable skipping of clouds that have no associated pose with `data.skip_clouds_wno_sync=true`
 
+* 运行后提醒打开浏览器`http://127.0.0.1:9876/`,但是加载好久都加载不出来（改为MobaXterm即可）
+
+<div align="center">
+  <img src="./Fig/微信截图_20250618214610.png" width="80%" />
+<figcaption>  
+</figcaption>
+</div>
 
 * 运行完SLAM后，可以生成mesh
 
