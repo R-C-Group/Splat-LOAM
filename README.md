@@ -3,16 +3,16 @@
 </div>
 
 
-## 配置测试
+## 安装配置
 
-* 可以采用作者提供的Docker或者Pixi，不过此处采用conda
+* 可以采用作者提供的Docker或者Pixi，不过此处采用conda配置：
 
 ```sh
 git clone --recursive https://github.com/R-C-Group/Splat-LOAM.git
 
 # rm -rf .git
 
-conda env create -f environment.yaml # for A100 with CUDA12.2
+conda env create -f environment.yaml # for A100 with CUDA12.2/12.1
 # # conda remove --name Splat-LOAM --all
 conda activate Splat-LOAM
 # bash post_install.sh
@@ -27,6 +27,8 @@ pip install ./submodules/gsaligner/
 pip install ./submodules/simple-knn/
 ```
 
+## 实验测试
+
 * `configs`文件中含有运行所需要的配置
 * 运行代码（注意要修改数据的路径,同时下载[kitti](https://www.cvlibs.net/datasets/kitti/eval_odometry.php)数据）
 
@@ -37,8 +39,8 @@ conda activate Splat-LOAM
 python3 run.py slam configs/kitti/kitti-00-odom.yaml
 ```
 
-* 注意，上述需要在`sequences/00`内还要有times.txt文件，故此需要下载图像帧看看
-* 若`output.folder`没有设置，实验结果会保存在 `results/<date_of_the_experiment>/`文件中
+* 注意，上述需要在`sequences/00`内还要有times.txt文件，故此需要下载图像帧
+* 下面是成功运行的截图：
 
 <div align="center">
   <img src="./Fig/微信截图_20250618211049.png" width="80%" />
@@ -57,13 +59,14 @@ python3 run.py slam configs/kitti/kitti-00-odom.yaml
 </figcaption>
 </div>
 
-* 运行完SLAM后，可以生成mesh
+* 若`output.folder`没有设置，实验结果会保存在 `results/<date_of_the_experiment>/`文件中
+* 运行完SLAM后(运行的时间应该要好几个小时)，接下来可以基于SLAM的结果来生成mesh：
 
 ```sh
 python3 run.py mesh <path/to/result/folder>
 ```
 
-* 3D Reconstruction
+* 为了验证所计算的mesh，运行下面命令:
 
 ```sh
 python3 run.py eval_recon <reference_pointcloud_file> <estimate_mesh> 
