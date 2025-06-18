@@ -2,9 +2,9 @@ inherit_from: configs/kitti/kitti.yaml
 data:
   dataset_type: kitti
   cloud_reader:
-    cloud_folder: /workspace/data/kitti/00
+    cloud_folder: /home/gwp/Splat-LOAM/dataset/dataset/sequences/00 #/workspace/data/kitti/00
   trajectory_reader:
-    filename: /workspace/data/kitti/poses/00.txt
+    filename: #/home/gwp/Splat-LOAM/dataset/dataset/poses/00.txt # /workspace/data/kitti/poses/00.txt
   skip_clouds_wno_sync: False
 mapping:
   num_iterations: 200
