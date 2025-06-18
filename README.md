@@ -10,7 +10,7 @@ git clone --recursive https://github.com/R-C-Group/Splat-LOAM.git
 
 # rm -rf .git
 
-conda create -n iegs python=3.10
-conda activate iegs
-# conda remove --name iegs --all
+# conda create -n iegs python=3.10
+# conda activate iegs
+# # conda remove --name iegs --all
 ```
