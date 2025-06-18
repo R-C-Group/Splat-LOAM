@@ -47,6 +47,9 @@ python3 run.py slam configs/kitti/kitti-00-odom.yaml
 </figcaption>
 </div>
 
+>[!TIP]
+>If you want to solve `Mapping-only`, provide a trajectory in `data.trajectory_reader.filename`, set tracking to use it with `tracking.method=gt` and enable skipping of clouds that have no associated pose with `data.skip_clouds_wno_sync=true`
+
 
 * 运行完SLAM后，可以生成mesh
 
