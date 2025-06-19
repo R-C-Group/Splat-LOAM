@@ -60,14 +60,36 @@ python3 run.py slam configs/kitti/kitti-00-odom.yaml
 </div>
 
 * 若`output.folder`没有设置，实验结果会保存在 `results/<date_of_the_experiment>/`文件中(但实际运行中会遇到没有results导致跑了几个小时后没法保存模型...)
+
+<div align="center">
+  <img src="./Fig/微信截图_20250619161850.png" width="80%" />
+<figcaption>  
+</figcaption>
+</div>
+
 * 运行完SLAM后(运行的时间应该要好几个小时)，接下来可以基于SLAM的结果来生成mesh：
 
 ```sh
 python3 run.py mesh <path/to/result/folder>
+# conda activate Splat-LOAM
+# python3 run.py mesh /home/gwp/Splat-LOAM/results/2025-06-19_09-40-53
 ```
 
-* 为了验证所计算的mesh，运行下面命令:
+<div align="center">
+  <img src="./Fig/微信截图_20250619162246.png" width="80%" />
+<figcaption>  
+</figcaption>
+</div>
+
+关于保存的ply的可视化请见博客。
+
+* 为了验证所计算的mesh以及odometry，运行下面命令:
 
 ```sh
 python3 run.py eval_recon <reference_pointcloud_file> <estimate_mesh> 
+
+python3 run.py eval_odom <path/to/odom/estimate> \
+                          --reference-filename <path/to/reference/trajectory> \
+                          --reference-format <tum|kitti|vilens> \
+                          --estimate-format <tum|kitti|vilens> \
 ```
