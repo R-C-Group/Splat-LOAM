@@ -59,7 +59,7 @@ python3 run.py slam configs/kitti/kitti-00-odom.yaml
 </figcaption>
 </div>
 
-* 若`output.folder`没有设置，实验结果会保存在 `results/<date_of_the_experiment>/`文件中
+* 若`output.folder`没有设置，实验结果会保存在 `results/<date_of_the_experiment>/`文件中(但实际运行中会遇到没有results导致跑了几个小时后没法保存模型...)
 * 运行完SLAM后(运行的时间应该要好几个小时)，接下来可以基于SLAM的结果来生成mesh：
 
 ```sh

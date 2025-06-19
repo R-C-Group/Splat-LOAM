@@ -6,7 +6,7 @@ preprocessing:
   enable_normal_estimation: false
   enable_ground_segmentation: false
 output:
-  folder: null
+  folder: /home/gwp/Splat-LOAM/results #null
   writer: kitti
 logging:
   enable: true # Enable data logging
